@@ -1,4 +1,8 @@
 {
   "name": "bamboo",
-  "displayName": "bamboo"
+  "displayName": "bamboo",
+  "icon": {
+    "android": "",
+    "ios": ""
+  }
 }
