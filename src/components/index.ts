@@ -1,1 +1,1 @@
-export { default as BottomTabs } from './bottom-tab'
+export { default as BottomTabs } from './bottom-tab';

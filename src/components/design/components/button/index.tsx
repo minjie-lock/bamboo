@@ -1,9 +1,11 @@
 
+import { useRef } from 'react';
 import {
-  Button as NButton,
+  Animated,
   ButtonProps as NButtonProps,
-  View
+  ViewStyle
 } from 'react-native'
+import { useConfiguration } from '../configuration';
 
 type ButtonProps = {
   /**
@@ -46,12 +48,70 @@ type ButtonProps = {
    * 大小
   */
   size?: 'mini' | 'small' | 'middle' | 'large';
-}
+  /**
+   * 
+  */
+  children?: React.ReactNode;
+};
+
+const height = {
+  mini: 26,
+  small: 30,
+  middle: 40,
+  large: 50,
+};
 
 export default function Button(props: ButtonProps){
-  return (
-    <View className="">
 
-    </View>
+  const {
+    children,
+    size = 'middle',
+    block = false,
+    shape = 'default',
+    color = 'primary',
+    fill = 'solid',
+  } = props;
+
+
+  const animated = useRef(new Animated.Value(0)).current;
+
+  const button = useConfiguration(configuration => {
+    return configuration.scheme?.components.button;
+  });
+
+  const radius = {
+    default: button?.round,
+    rectangular: 0,
+    rounded: '30%'
+  };
+
+  const background = {
+    none: {
+      backgroundColor: 'none',
+      color: button?.color[color],
+    },
+    solid: {
+      backgroundColor: button?.color[color],
+      color: '#fff'
+    },
+    outline: {
+      backgroundColor: 'none',
+      color: button?.color[color],
+      borderWidth: 1,
+      borderColor: button?.color[color]
+    }
+  }
+
+  const style: ViewStyle = {
+    width: block ? '100%' : 'auto',
+    height: height[size],
+    borderRadius: radius[shape],
+    ...background[fill],
+  };
+
+  return (
+    <Animated.View style={style}>
+      {children}
+    </Animated.View>
   )
 }

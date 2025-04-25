@@ -2,7 +2,7 @@
  * @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './main.{tsx,ts}',
+    './main.{tsx}',
     './src/**/*.{tsx,ts}',
   ],
   presets: [

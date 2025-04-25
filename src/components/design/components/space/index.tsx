@@ -1,5 +1,4 @@
-import { CSSProperties } from "react";
-import { View, ViewProps, ViewStyle } from "react-native";
+import { View, ViewStyle } from "react-native";
 
 type SpaceProps = {
   /**
