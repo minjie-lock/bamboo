@@ -2,12 +2,21 @@ import { createContext, useContext } from "react"
 import type { ConfigurationProps } from "./types";
 import { light } from "../styles";
 
-const Arrangement = createContext<Required<Omit<ConfigurationProps, 'children'>>>({
+type State = Required<Omit<ConfigurationProps, "children">>;
+
+const Arrangement = createContext<State>({
   scheme: {
     components: light?.components,
   },
 });
 
+
+/**
+ * @function Configuration
+ * @description 全局配置组件
+ * @param props 
+ * @returns 
+ */
 export default function Configuration(
   props: ConfigurationProps
 ) {
@@ -17,7 +26,7 @@ export default function Configuration(
     ...rest
   } = props;
 
-  const value: Omit<ConfigurationProps, 'children'> = {
+  const value: State = {
     scheme: {
       components: {
         ...light?.['components'],
@@ -34,14 +43,12 @@ export default function Configuration(
   )
 }
 
-type State = Readonly<Omit<ConfigurationProps, "children">>;
-type Fn<F extends Fn<F>> = (configuration: State) => ReturnType<F>;
-type FnValue<F extends Fn<F>> = F extends (configuration: State) => ReturnType<F> ?
-ReturnType<F> : State;
 
-export function useConfiguration<F extends Fn<F>>(fn?: F): FnValue<F> {
+type Fn<F extends Fn<F>> = (configuration: State) => ReturnType<F>;
+
+export function useConfiguration<F extends Fn<F>>(fn?: F):
+F extends Function ? ReturnType<F> : State {
   const configuration = useContext(Arrangement);
-  if (fn === void 0) return configuration;
   if (typeof fn === 'function') {
     return fn(configuration);
   }
