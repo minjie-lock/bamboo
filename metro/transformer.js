@@ -2,8 +2,29 @@ const BabelTransformer = require('@react-native/metro-babel-transformer');
 const imported = new Set();
 
 const components = {
-  view: 'View',
+  'safe-area': 'SafeAreaView',
+  'activity-indicator': 'ActivityIndicator',
+  button: 'Button',
+  'flat-list': 'FlatList',
+  image: 'Image',
+  'image-background': 'ImageBackground',
+  'keyboard-avoiding': 'keyboard-avoiding',
+  modal: 'Modal',
+  pressable: 'Pressable',
+  refresh: 'RefreshControl',
+  scroll: 'ScrollView',
+  section: 'SectionList',
+  'status-bar': 'StatusBar',
   text: 'Text',
+  input: 'TextInput',
+  'touchable-highlight': 'TouchableHighlight',
+  'touchable-opacity': 'TouchableOpacity',
+  'touchable-without-feedback': 'TouchableWithoutFeedback',
+  view: 'View',
+  'virtualized-list': 'VirtualizedList',
+  'drawer-layout': 'DrawerLayoutAndroid',
+  'touchable-native-feedback': 'TouchableNativeFeedback',
+  'input-accessory': 'InputAccessoryView',
 };
 
 const createEffect = ({ types }) => {
@@ -71,8 +92,6 @@ module.exports = {
         ],
         options: {
           ...options,
-          // 将你的插件添加到现有的插件列表中
-          plugins: [...plugins, createEffect],
           ast: true,
           babelrc: false,
           configFile: false,

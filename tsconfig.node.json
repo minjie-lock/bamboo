@@ -1,0 +1,14 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "jsx": "preserve",
+    "jsxImportSource": "./types/jsx-runtime.d.ts"
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "nativewind-env.d.ts",
+    "metro"
+  ]
+}

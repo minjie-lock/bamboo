@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.27.1",
     "@react-native-community/cli-plugin-metro": "^12.3.6",
+    "babel-plugin-module-resolver": "^5.0.2",
     "metro": "^0.82.4",
     "metro-babel-transformer": "^0.82.4",
     "metro-core": "^0.82.4",

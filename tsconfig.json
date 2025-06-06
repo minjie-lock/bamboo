@@ -3,11 +3,20 @@
   "compilerOptions": {
     "baseUrl": "./",
     "jsx": "preserve",
-    "jsxImportSource": "./src/types/jsx-runtime.d.ts"
+    // "jsxImportSource": "./types/jsx-runtime.d.ts",
+    "types": [
+      "./types/jsx-runtime.d.ts"
+    ],
+    "jsxImportSource": "./types",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    }
   },
   "include": [
-    "src/**/*",
-    "types/**/*",
+    "src",
+    "types",
     "nativewind-env.d.ts",
     "metro"
   ]
