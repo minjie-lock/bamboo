@@ -4,7 +4,10 @@ Bamboo 集成 tailwincss 样式和自动引入基础组件
 
 ## 差异
 
-## 集成 tailwindcss 样式
+1. 默认使用 NativeWind 集成 tailwindcss 样式
+2. 自动转换引入组件，剔除繁琐的组件引入
+
+### 集成 tailwindcss 样式
 
 使用 NativeWind 集成 tailwindcss 样式
 
@@ -12,7 +15,7 @@ Bamboo 集成 tailwincss 样式和自动引入基础组件
 <View className="flex-row"></View>
 ```
 
-## 集成基础组件
+### 集成基础组件
 
 不用引入组件自动转换引入组件，剔除繁琐的组件引入
 
@@ -21,7 +24,7 @@ Bamboo 集成 tailwincss 样式和自动引入基础组件
 <text> -> <Text>
 ```
 
-### 编码体验
+#### 编码体验
 
 ```tsx
 <view>
