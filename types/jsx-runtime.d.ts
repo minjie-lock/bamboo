@@ -21,6 +21,7 @@ import type {
   ViewProps,
 } from 'react-native';
 
+
 namespace JSX {
 
   interface Attributes {
