@@ -1,11 +1,8 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "nativewind",
-    "types": [
-      "./types/jsx-runtime.d.ts"
-    ],
+    "jsx": "preserve",
+    "jsxImportSource": "types",
     "baseUrl": "./",
     "paths": {
       "@/*": [
@@ -15,6 +12,7 @@
   },
   "include": [
     "src",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "babel-plugin-module-resolver",
   ]
 }
